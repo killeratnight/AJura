@@ -1,0 +1,8 @@
+name: Ahyra
+version: 1.0-Alpha
+description: A plugin that takes care of those pesky bad mouthers.
+author: killeratnight
+main: me.killeratnight.ajura.Ajura
+database: false
+load: startup
+prefix: AJura

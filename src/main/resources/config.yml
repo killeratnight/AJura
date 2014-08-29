@@ -1,0 +1,34 @@
+# AJura By: killeratnight
+#
+# Put Description Here that explains this
+# plugin
+#
+# The BadWurds list has prioritization, simply rearrange the words with their priority
+# e.g - Banana comes first before Lag, so the plugin will check for Banana in the player's message
+#       before Lag and so on..
+#
+# Flags:
+#  ReplaceWith: 'NewWurdHere' - Replace the BadWurd with this wurd.
+#  CancelMsg: boolean - Set True/False to cancel the chat message.
+#  RunCmd: 'CommandHere' - Run Specified command from "Commands" list.
+#
+#
+Enabled: true
+Commands:
+  MuteCommand: '/mute @player 20m'
+  WarnCommand: '/tell @player you have been warned'
+  KickCommand: '/kick @player No Saying Bad Wurds'
+  TempBanCommand: '/tempban @player 10m'
+
+BadWurds:
+  Banana:
+    ReplaceWith: 'chow'
+    RunCmd: 'WarnCommand'
+  Lag:
+    RunCmd: 'MuteCommand'
+    CancelMsg: true
+  Ching:
+    RunCmd: 'KickCommand'
+  Fricker:
+    RunCmd: 'WarnCommand'
+    ReplaceWith: 'Turtles'
