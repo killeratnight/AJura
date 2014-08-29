@@ -3,6 +3,14 @@
 # Put Description Here that explains this
 # plugin
 #
+# The Commands list is the list where you can add custom commands you want the plugin
+# to run with the assigned wurd
+# e.g - Banana wurd will "RunCmd" the command named 'WarnCommand'
+#
+# Adding a command is as simple as copying one of the already available commands and pasting
+# it in the list followed by renaming it and changing the command it will run
+# @player will be replaced with the player's name.
+#
 # The BadWurds list has prioritization, simply rearrange the words with their priority
 # e.g - Banana comes first before Lag, so the plugin will check for Banana in the player's message
 #       before Lag and so on..

@@ -32,10 +32,7 @@ public class ChatListener implements Listener{
         if(plugin.func.checkBadWurds()){
           for(String wurd : plugin.func.getBadWurds()){
             if(pMsg.toLowerCase().contains(wurd.toLowerCase())){
-              if(plugin.func.checkFlag(wurd, "Replace")){
-                
-              }
-              if(plugin.func.checkFlag(wurd, "Mute") || plugin.getConfig().getBoolean("BadWurds."+wurd+".Mute")){
+              if(plugin.func.checkFlag(wurd, "ReplaceWith")){
                 
               }
             }
