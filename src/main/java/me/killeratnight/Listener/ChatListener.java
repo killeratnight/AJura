@@ -1,7 +1,7 @@
 package me.killeratnight.Listener;
 
 import me.killeratnight.ajura.Ajura;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -17,23 +17,29 @@ public class ChatListener implements Listener{
   }
   @EventHandler
   public void onPlayerChat(AsyncPlayerChatEvent e){
-    String pUUID;
     String pName;
     String pMsg;
-    FileConfiguration C;
     
     if(plugin.enabled){
-      pUUID = e.getPlayer().getUniqueId().toString();
       pName = e.getPlayer().getName();
       pMsg = e.getMessage();
-      C = plugin.getConfig();
       
       if(!e.getPlayer().hasPermission("ajura.evade")){
         if(plugin.func.checkBadWurds()){
           for(String wurd : plugin.func.getBadWurds()){
             if(pMsg.toLowerCase().contains(wurd.toLowerCase())){
               if(plugin.func.checkFlag(wurd, "ReplaceWith")){
-                
+                pMsg = pMsg.replaceAll(wurd, plugin.func.getFlag(wurd).getString("ReplaceWith"));
+                e.setMessage(pMsg);
+              }
+              if(plugin.func.checkFlag(wurd, "CancelMsg")){
+                e.setCancelled(true);
+              }
+              if(plugin.func.checkFlag(wurd, "RunCmd")){
+                String cmd = plugin.func.getFlag(wurd).getString("RunCmd");
+                cmd = cmd.replaceAll("/", null);
+                cmd = cmd.replaceAll("@player",pName);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
               }
             }
           }

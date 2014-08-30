@@ -11,6 +11,12 @@
 # it in the list followed by renaming it and changing the command it will run
 # @player will be replaced with the player's name.
 #
+# Enabled - Pretty self explanatory, determines whether the plugin is enabled or not.
+# MaxStrikes - When a player mentions one of the listed wurds in BadWurds, they get a strike added to their
+#              record, this is the threshold number of strikes before the player gets a punishment.
+# StrikePunishment - The command that will run when the player has reach the maximum strikes assigned.
+#
+# BadWurds - The list where you add the foul wurds that you wish to flag.
 # The BadWurds list has prioritization, simply rearrange the words with their priority
 # e.g - Banana comes first before Lag, so the plugin will check for Banana in the player's message
 #       before Lag and so on..
@@ -22,6 +28,8 @@
 #
 #
 Enabled: true
+MaxStrikes: 3
+StrikePunishment: '/tempban @player 1d'
 Commands:
   MuteCommand: '/mute @player 20m'
   WarnCommand: '/tell @player you have been warned'

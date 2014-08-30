@@ -27,7 +27,8 @@ public class Ajura extends JavaPlugin{
   
   @Override
   public void onDisable(){
-    
+    plugin.saveConfig();
+    PlayerStrikes.savePS();
   }
   @Override
   public void onEnable(){
